@@ -42,7 +42,6 @@ class Artist
 
   end
 
-
   def update
     sql = "
     UPDATE artists
@@ -61,5 +60,14 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  def Artist.find_by_id(id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return if result.count == 0
+    artist_data = result[0]
+    found_artist = Artist.new(artist_data)
+    return found_artist
+  end
 
 end
