@@ -1,28 +1,13 @@
 require('pry')
-require_relative('./models/pizza_order')
-require_relative('./models/customer')
+require_relative('./models/artist')
 
-PizzaOrder.delete_all()
-Customer.delete_all()
+artist1 = Artist.new({'name' => 'Rolling Stones'})
 
-customer1 = Customer.new( { 'name' => 'Bob' } )
-customer1.save()
+artist1.save()
 
-order1 = PizzaOrder.new({
-    'topping' => 'Pepperoni',
-    'quantity' => 4,
-    'customer_id' => customer1.id
-})
 
-order1.save()
 
-order2 = PizzaOrder.new({
-    'topping' => 'Cheese',
-    'quantity' => 4,
-    'customer_id' => customer1.id
-})
 
-order2.save()
 
 
 binding.pry

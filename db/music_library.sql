@@ -1,14 +1,16 @@
-DROP TABLE IF EXISTS pizza_orders;
-DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS albums;
+DROP TABLE IF EXISTS artists;
 
-CREATE TABLE customers (
-  id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255)
+
+CREATE TABLE artists (
+id SERIAL8 PRIMARY KEY,
+name VARCHAR(255)
 );
 
-CREATE TABLE pizza_orders (
-  id SERIAL8 PRIMARY KEY,
-  quantity INT2,
-  topping VARCHAR(255),
-  customer_id INT8 REFERENCES customers(id)
+
+CREATE TABLE albums (
+id SERIAL8 PRIMARY KEY,
+title VARCHAR(255),
+genre VARCHAR(255),
+artist_id SERIAL8 REFERENCES artists(id)
 );
