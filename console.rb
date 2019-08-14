@@ -23,8 +23,15 @@ album2 = Album.new({
   'artist_id' => artist2.id()
   })
 
+  album3 = Album.new({
+    'title' => 'AM Greatest Hits',
+    'genre' => 'rock',
+    'artist_id' => artist2.id()
+    })
+
 album1.save()
 album2.save()
+album3.save()
 
 binding.pry
 nil
